@@ -75,6 +75,9 @@ for %%a in (
 echo Enabling capabilities (this might take a while)...
 dism /Online /Add-Capability /CapabilityName:"Print.Management.Console~~~~0.0.1.0" /NoRestart > nul
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\Print" /v "state" /t REG_SZ /d "Enabled" /f > nul
+
 if "%~1"=="/silent" exit /b
 
 choice /c:yn /n /m "Would you want to enable Fax and Scan functionality? [Y/N] "

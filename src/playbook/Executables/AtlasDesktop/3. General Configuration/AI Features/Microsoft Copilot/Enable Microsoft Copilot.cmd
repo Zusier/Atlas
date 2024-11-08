@@ -29,6 +29,9 @@ taskkill /f /im explorer.exe > nul 2>&1
 reg delete "HKCU\Software\Policies\Microsoft\Windows\WindowsCopilot" /v "TurnOffWindowsCopilot" /f > nul 2>&1
 start explorer.exe
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\Copilot" /v "state" /t REG_SZ /d "Enabled" /f > nul
+
 :finish
 echo]
 echo Finished, changes are applied. %appText%

@@ -27,6 +27,9 @@ echo Enabling News and Interests (called Widgets in Windows 11)...
 timeout /t 3 /nobreak > nul
 start ms-settings:taskbar
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\Widgets" /v "state" /t REG_SZ /d "Enabled" /f > nul
+
 echo]
 echo Finished, you should be able to toggle News and Interests or Widgets in Settings.
 echo Press any key to exit...

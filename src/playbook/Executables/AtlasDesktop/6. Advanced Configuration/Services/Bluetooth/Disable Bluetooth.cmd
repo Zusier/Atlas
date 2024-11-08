@@ -47,6 +47,9 @@ call "%windir%\AtlasDesktop\4. Interface Tweaks\Context Menus\Send To\Debloat Se
 :: https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-connectivity
 reg add "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Connectivity\AllowBluetooth" /v "value" /t REG_DWORD /d "0" /f > nul
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\Bluetooth" /v "state" /t REG_SZ /d "Disabled" /f > nul
+
 if "%~1" == "/silent" exit
 
 echo Finished, please reboot your device for changes to apply.

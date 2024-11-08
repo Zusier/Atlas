@@ -31,6 +31,9 @@ whoami /user | find /i "S-1-5-18" > nul 2>&1 || (
 	reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" "AppCaptureEnabled" /f
 ) > nul 2>&1
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\FSOGameBar" /v "state" /t REG_SZ /d "Enabled" /f > nul
+
 echo Finished, FSO is now enabled and you should be able to use Game Bar.
 echo Press any key to exit...
 pause > nul

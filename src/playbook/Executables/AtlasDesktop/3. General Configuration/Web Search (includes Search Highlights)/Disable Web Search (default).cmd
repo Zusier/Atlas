@@ -35,6 +35,9 @@ call "%windir%\AtlasModules\Scripts\settingsPages.cmd" /hide search-permissions 
 	powershell -NoP -NonI "Get-AppxPackage -AllUsers Microsoft.BingSearch* | Remove-AppxPackage -AllUsers"
 ) > nul 2>&1
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\WebSearch" /v "state" /t REG_SZ /d "Disabled" /f > nul
+
 echo]
 echo Finished.
 echo Press any key to exit...

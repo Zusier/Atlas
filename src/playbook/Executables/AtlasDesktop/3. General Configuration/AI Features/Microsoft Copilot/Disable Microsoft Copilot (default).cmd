@@ -19,6 +19,9 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "S
 reg add "HKCU\Software\Policies\Microsoft\Windows\WindowsCopilot" /v "TurnOffWindowsCopilot" /t REG_DWORD /d "1" /f > nul
 start explorer.exe
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\Copilot" /v "state" /t REG_SZ /d "Disabled" /f > nul
+
 echo]
 echo Finished, changes are applied.
 echo Press any key to exit...

@@ -28,6 +28,9 @@ for /f "tokens=6 delims=[.] " %%a in ('ver') do (
 )
 call setSvc.cmd SSDPSRV 3
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\NetworkDiscovery" /v "state" /t REG_SZ /d "Enabled" /f > nul
+
 if "%~1" == "/silent" exit /b
 
 echo]

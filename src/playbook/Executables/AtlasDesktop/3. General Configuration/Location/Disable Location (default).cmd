@@ -34,6 +34,9 @@ for %%a in (
 	call "%windir%\AtlasModules\Scripts\settingsPages.cmd" /hide %%~a /silent
 )
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\Location" /v "state" /t REG_SZ /d "Disabled" /f > nul
+
 if "%~1"=="/silent" exit /b
 
 echo Finished.

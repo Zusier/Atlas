@@ -49,6 +49,9 @@ call "%windir%\AtlasModules\Scripts\settingsPages.cmd" /unhide search-permission
 	start explorer.exe
 ) > nul 2>&1
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\WebSearch" /v "state" /t REG_SZ /d "Enabled" /f > nul
+
 echo]
 echo Finished, you should be able to use Web Search and Search Highlights.
 echo Press any key to exit...

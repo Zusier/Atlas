@@ -21,6 +21,9 @@ call setSvc.cmd srv2 4
 
 DISM /Online /Disable-Feature /FeatureName:"SmbDirect" /NoRestart
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\SMB" /v "state" /t REG_SZ /d "Disabled" /f > nul
+
 echo]
 echo Finished, please reboot your device for changes to apply.
 pause

@@ -19,6 +19,9 @@ call setSvc.cmd FDResPub 4
 call setSvc.cmd lmhosts 4
 call setSvc.cmd SSDPSRV 4
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\NetworkDiscovery" /v "state" /t REG_SZ /d "Disabled" /f > nul
+
 echo Finished, please reboot your device for changes to apply.
 pause
 exit /b

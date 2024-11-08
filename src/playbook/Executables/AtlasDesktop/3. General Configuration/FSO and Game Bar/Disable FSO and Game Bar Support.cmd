@@ -31,6 +31,9 @@ whoami /user | find /i "S-1-5-18" > nul 2>&1 || (
 	reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v "AppCaptureEnabled" /t REG_DWORD /d "0" /f
 ) > nul
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\FSOGameBar" /v "state" /t REG_SZ /d "Disabled" /f > nul
+
 echo Finished, FSO and Game Bar are now disabled.
 echo Press any key to exit...
 pause > nul

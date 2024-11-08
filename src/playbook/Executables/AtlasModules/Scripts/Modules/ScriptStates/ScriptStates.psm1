@@ -5,7 +5,7 @@ function Add-ScriptEntry {
         [string]$state # State of script, string to support scripts with various states
     )
 
-    $regPath = "HKLM:\SOFTWARE\AtlasOS\$scriptId"
+    $regPath = "HKLM:\SOFTWARE\Atlas\$scriptId"
 
     # Create registry key if it doesn't exist
     if (-not (Test-Path $regPath)) {
@@ -25,7 +25,7 @@ function Update-ScriptState {
         [string]$scriptPath = $null # Path should be provided if you want to create a new entry if it doesn't exist
     )
 
-    $regPath = "HKLM:\SOFTWARE\AtlasOS\$scriptId"
+    $regPath = "HKLM:\SOFTWARE\Atlas\$scriptId"
 
     if (Test-Path $regPath) {
         # Update the state and last updated time
@@ -46,7 +46,7 @@ function Get-ScriptState {
         [string]$scriptId
     )
 
-    $regPath = "HKLM:\SOFTWARE\AtlasOS\$scriptId"
+    $regPath = "HKLM:\SOFTWARE\Atlas\$scriptId"
 
     if (Test-Path $regPath) {
         return (Get-ItemProperty -Path $regPath).state
@@ -55,3 +55,4 @@ function Get-ScriptState {
         return $null
     }
 }
+=

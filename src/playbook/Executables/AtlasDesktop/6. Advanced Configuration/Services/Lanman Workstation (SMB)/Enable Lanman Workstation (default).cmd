@@ -24,6 +24,9 @@ call setSvc.cmd srv2 3
 
 DISM /Online /Enable-Feature /FeatureName:"SmbDirect" /NoRestart
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\SMB" /v "state" /t REG_SZ /d "Enabled" /f > nul
+
 if "%~1" == "/silent" exit /b
 
 echo]

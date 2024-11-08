@@ -21,6 +21,9 @@ echo Disabling News and Interests (called Widgets in Windows 11)...
     start explorer.exe
 ) > nul 2>&1
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\Widgets" /v "state" /t REG_SZ /d "Disabled" /f > nul
+
 echo]
 echo Finished, changes have been applied.
 echo Press any key to exit...

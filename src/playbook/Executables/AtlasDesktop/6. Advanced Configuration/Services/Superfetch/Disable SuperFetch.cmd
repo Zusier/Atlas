@@ -28,7 +28,10 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Services\rdyboost" /v "Start" /t REG_DWOR
 reg delete "HKCR\Drive\shellex\PropertySheetHandlers\{55B3A0BD-4D28-42fe-8CFB-FA3EDFF969B8}" /f > nul 2>&1
 
 :: Disable SysMain (Prefetch, Memory Management features)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\SysMain" /v "Start" /t REG_DWORD /d "4" /f > nul 
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\SysMain" /v "Start" /t REG_DWORD /d "4" /f > nul
+
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\SuperFetch" /v "state" /t REG_SZ /d "Disabled" /f > nul
 
 echo Finished, please reboot your device for changes to apply.
 pause

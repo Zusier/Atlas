@@ -27,6 +27,9 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Services\NVDisplay.ContainerLocalSystem
 call setSvc.cmd NVDisplay.ContainerLocalSystem 2
 sc start NVDisplay.ContainerLocalSystem > nul 2>&1
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\NVDisplayContainer" /v "state" /t REG_SZ /d "Enabled" /f > nul
+
 if "%~1"=="/silent" exit /b
 
 echo Finished, changes have been applied.

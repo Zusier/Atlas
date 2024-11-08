@@ -34,6 +34,9 @@ pause
 call setSvc.cmd NVDisplay.ContainerLocalSystem 4
 sc stop NVDisplay.ContainerLocalSystem > nul 2>&1
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\NVDisplayContainer" /v "state" /t REG_SZ /d "Disabled" /f > nul
+
 echo Finished, changes have been applied.
 pause
 exit /b

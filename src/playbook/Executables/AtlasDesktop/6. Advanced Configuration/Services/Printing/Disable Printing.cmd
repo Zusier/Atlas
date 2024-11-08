@@ -72,6 +72,9 @@ for %%a in (
     dism /Online /Disable-Feature /FeatureName:"%%a" /NoRestart > nul
 )
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\Print" /v "state" /t REG_SZ /d "Disabled" /f > nul
+
 if "%~1" == "/silent" exit /b
 
 echo]

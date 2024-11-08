@@ -39,6 +39,9 @@ if %errorlevel%==2 (
 	reg add %key1% /v LocationSyncEnabled /t REG_DWORD /d 0 /f > nul
 )
 
+:: Update script state
+reg add "HKLM\SOFTWARE\Atlas\Location" /v "state" /t REG_SZ /d "Enabled" /f > nul
+
 echo]
 echo Finished.
 start ms-settings:privacy-location
